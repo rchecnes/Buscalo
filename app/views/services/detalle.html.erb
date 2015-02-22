@@ -1,0 +1,32 @@
+<div class="detalle-content">
+  <div class="row">
+    <h1>Detalle de evento</h1>
+
+    <% @publications = Publication.find(params[:id]) %>
+
+    <table align="center">
+    	<tr>
+    		<td>Título:</td>
+    		<td><%= @publications.title %></td>
+    	</tr>
+
+        <tr>
+            <td>Descripción:</td>
+            <td><%= @publications.description %></td>
+        </tr>
+        <tr>
+            <td>Cantidad entradas:</td>
+            <td><%= @publications.qt_entrance %></td>
+        </tr>
+        <tr>
+            <td>Precio entrada:</td>
+            <td><%= @publications.price_entrance %></td>
+        </tr>
+        <tr>
+            <td>Precio Venta:</td>
+            <td><%= @publications.price_sales %></td>
+        </tr>
+    </table>
+    <%= link_to 'Regresar', services_path %>
+  </div>
+</div>

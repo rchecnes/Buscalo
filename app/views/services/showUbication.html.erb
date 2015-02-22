@@ -1,0 +1,209 @@
+
+<!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<div class="row ubicacion-actual">
+  <div class="btn-group">
+    <a href="/services/showUbication" class="btn btn-success" role="button">
+     <strong>ON</strong>
+     </a>
+     <a href="/services" class="btn btn-default" role="button">
+       <strong>OFF</strong>
+     </a>&nbsp;
+     <label class="texto-h2">Ubicación: Parque Kennedy</label>
+  </div>
+</div>
+  <!--fin tabs-->
+<div class="group-content">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="col-sm-12"><h1>Discotecas</h1></div>
+    </div>
+  </div>
+  <div class="row">
+  <!--<script src="http://maps.google.com/maps/api/js?sensor=false"></script>-->
+     <!--<div class="col-sm-12">
+          <div class="col-sm-12 content-map">
+          <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=700x300&sensor=false&zoom=6&markers=#{@latitude}%2C#{@longitude}", :class=>"mapa_fun_nigth" %>
+          </div>
+      </div>-->
+    <div class="col-sm-12">
+      <div class="col-sm-12 content-map">
+          <!--<div id="mapcanvas" class="mapa_fun_nigth"></div>-->
+          <div id="mapa_canvas" class="mapa_fun_nigth"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="col-sm-8">
+      <% @array =[1,2,3,4,5,6,7,8,9,10,11,12] %>
+      <% @contador=1 %>
+      <% for @item in @array; %>
+        <% if @contador == 1 %>
+          <div class="row">
+          <div class="col-sm-12">
+        <% end %>
+
+          <div class="col-sm-6">
+            <div class="space even-content text-center">
+              <div class="row"><h4>Discoteca Centrica</h4></div>
+              <p>
+                Jueves 19 de marzo 2015 (10:00 p.m.)
+              </p>
+              <div>
+                  <%= image_tag("music.png", :alt => "rss feed", :height =>80, :width => 150, :class =>"") %>
+              </div>
+             <li><a href="/articles/detalle" class="btn btn-default" role="button">
+               <strong>Comprar</strong>
+             </a>
+
+            </div>
+          </div>
+        <% if @contador == 2 %>
+          </div>
+          </div>
+          <% @contador = 0 %>
+        <% end %>
+
+        <% @contador=@contador +1 %>
+      <% end %>
+      </div>
+      <div class="col-sm-4">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="col-sm-12 publicidad">
+            <% @array = [1,2,3,4,5,6,7,8,9]%>
+            <% for item in @array %>
+              <div class="row-public">
+                  <h6>American Sniper´ rompe récord de taquilla</h6>
+                  <div>La película sobre el francotirador Chris Kyle "American Sniper" dominó la taquilla de EE.UU. por tercer fin de semana consecutivo</div>
+              </div>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var x=document.getElementById("mensaje");
+  var latlon, map, geocoder, marker;
+  
+  function getLocation()
+{
+  if (navigator.geolocation)
+  {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  }
+  else
+  {
+    x.innerHTML="Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position)
+{
+  //console.dir(position);
+  lat = position.coords.latitude;
+  lon = position.coords.longitude;
+
+  latlon = new google.maps.LatLng(lat, lon);
+
+  //console.dir(latlon);
+  //console.dir(google.maps);
+  mapholder = document.getElementById('mapa_canvas');
+  //mapholder.style.height='250px';
+  //mapholder.style.width='100%';
+
+  var myOptions={
+    center:latlon,
+    zoom:14,
+    mapTypeId:google.maps.MapTypeId.ROADMAP,
+    mapTypeControl:false,
+    navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+  };
+
+  map     =   new google.maps.Map(mapholder, myOptions);
+  marker  =   new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
+
+  //alert(lat);
+  //alert(lon);
+}
+
+function geoCoder()
+{
+  var infowindow = new google.maps.InfoWindow();
+  geocoder = new google.maps.Geocoder();
+  geocoder.geocode({'latLng': latlon}, function(results, status) {
+
+    console.dir(results);
+    if (status == google.maps.GeocoderStatus.OK) {
+      if (results[2]) { // Resultado posicion 2 indica el Distrito
+        map.setZoom(14);
+        infowindow.setContent(results[2].formatted_address);
+        infowindow.open(map, marker);
+
+        document.getElementById('distrito').innerHTML = results[2].formatted_address;
+      }
+    } else {
+      alert("Geocoder failed due to: " + status);
+    }
+  });
+}
+
+function showError(error)
+  {
+  switch(error.code)
+    {
+    case error.PERMISSION_DENIED:
+      x.innerHTML="User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML="Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML="The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML="An unknown error occurred."
+      break;
+    }
+  }
+
+  getLocation();
+
+    /*var latitude = -12.1039518;
+    var longitude = -76.96327810000003;
+    var LugarActual = "UPC Monterrico";
+
+    function mostrarMapa(latitude, longitude) {
+        latitude  = latitude || -12.1039518;
+        longitude = longitude || -76.96327810000003;
+
+        var latlng = new google.maps.LatLng(latitude, longitude);
+        var myOptions = {
+            zoom: 16,
+            center: latlng,
+            mapTypeControl: false,
+            navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            title:LugarActual
+        });
+    }
+
+    mostrarMapa(latitude, longitude);*/
+
+</script>
+
+

@@ -1,0 +1,91 @@
+<%= simple_form_for @publication, :html => {:multipart => true} do |f| %>
+  <% if @publication.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@publication.errors.count, "error") %> prohibited this publication from being saved:</h2>
+
+      <ul>
+      <% @publication.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="form-group">
+      <div class="col-lg-12">
+        <div class="col-lg-4">
+          Título<br>
+          <%= f.text_field :title, :class=>"form-control"%>
+        </div>
+        <div class="col-lg-4">
+          Dirección<br>
+        <%= f.text_field :direction, :class=>"form-control" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <div class="col-lg-12">
+        <div class="col-lg-4">
+          Descripción<br>
+        <%= f.text_field :description, :class=>"form-control" %>
+        </div>
+        <div class="col-lg-4">
+          Foto<br>
+          <%= f.file_field :image%>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <div class="col-lg-12">
+        <div class="col-lg-4">
+         Cantidad a vender<br>
+          <%= f.number_field :qt_entrance,:class=>"form-control"  %>
+        </div>
+        <div class="col-lg-4">
+          Precio base<br>
+          <%= f.text_field :price_entrance,:class=>"form-control" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <div class="col-lg-12">
+        <div class="col-lg-4" style="display:none">
+          Precio venta<br>
+          <%= f.text_field :price_sales,:class=>"form-control" %>
+        </div>
+        <div class="col-lg-4">
+          Importante<br>
+          <%= f.check_box :important,:class=>"form-control" %>
+        </div>
+        <div class="col-lg-4">
+           Estadoo<br>
+            <%= f.check_box :status,:class=>"form-control" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    var venta_porcentaje = 0.20;
+
+    $("#publication_price_entrance").on("keyup",function(){
+      
+      var precio_final = parseFloat($(this).val()) + (parseFloat($(this).val()) * venta_porcentaje);
+
+      $("#publication_price_sales").val(precio_final);
+    });
+  })
+
+</script>

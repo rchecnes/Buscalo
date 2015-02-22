@@ -1,0 +1,204 @@
+<div class="row ubicacion-actual">
+  <div class="btn-group">
+    <a href="/services/showUbication" class="btn btn-default" role="button">
+     <strong>ON</strong>
+     </a>
+     <a href="/services" class="btn btn-success" role="button">
+       <strong>OFF</strong>
+     </a>
+  </div>
+</div>
+<div class="row content_filtro">
+  <!--inicio tabs-->
+  <div class="group-content">
+    <div class="row cuadro-filtro">
+      <div class="col-sm-12">
+        <div class="content-tab">
+          <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+            <li class="active"><a href="#discoteca" data-toggle="tab">Discotecas</a></li>
+            <li><a href="#bar" data-toggle="tab">Bares</a></li>
+            <li><a href="#pena" data-toggle="tab">Peñas</a></li>
+            <li><a href="#karaoke" data-toggle="tab">Karaoke</a></li>
+          </ul>
+          <div id="my-tab-content" class="tab-content">
+            <div class="tab-pane active" id="discoteca">
+                <form>
+                  <div class="form-group">
+                    <br>
+                    <div class="row">
+                      <div class="col-sm-6"></div>
+                      <div class="col-sm-6 text-right">
+                        <div class="btn-group" role="group" aria-label="...">
+                          <button id="btn_porZona" type="button" class="btn btn-default">Por Zona</button>
+                          <button id="btn_porNombre" type="button" class="btn btn-default">Por Nombre</button>
+                          <button id="btn_porMusica" type="button" class="btn btn-default">Por Música</button>
+                        </div>
+                      </div>
+                    </div><br>
+                    <div id="porZona" class="row">
+                      <div class="col-sm-4">
+                        <select class="form-control">
+                          <option>Elije tu distrito</option>
+                          <option>Chorrillos</option>
+                          <option>Breña</option>
+                          <option>San Isidro</option>
+                          <option>Lince</option>
+                        </select>
+                      </div>
+
+                      <div class='col-sm-3'>
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input type='text' class="form-control" />
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <button type="button" class="btn btn-primary">Buscar</button>
+                      </div>
+                    </div>
+                    <div id="porNombre" class="row">
+                      <div class="col-sm-12">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="" placeholder="Buqueda por nombre">
+                          </div>
+                        </div>
+                        <div class='col-sm-4'>
+                          <div class="form-group">
+                              <div class='input-group date' id='datetimepicker1'>
+                                  <input type='text' class="form-control" />
+                                  <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                  </span>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <button type="button" class="btn btn-primary">Buscar</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="porMusica" class="row">
+                      <div class="col-sm-12">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="" placeholder="Buqueda por tipo de música">
+                          </div>
+                        </div>
+                        <div class='col-sm-4'>
+                          <div class="form-group">
+                              <div class='input-group date' id='datetimepicker1'>
+                                  <input type='text' class="form-control" />
+                                  <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                  </span>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <button type="button" class="btn btn-primary">Buscar</button>
+                        </div>
+                      </div>
+                    </div>
+                </form>
+              </div>
+
+            </div>
+            <div class="tab-pane" id="bar">Bares</div>
+            <div class="tab-pane" id="pena">Peñas</div>
+            <div class="tab-pane" id="karaoke">Karaokes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!--fin tabs-->
+
+
+<div class="group-content">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="col-sm-12"><h1>Las más destacadas</h1></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="col-sm-8">
+      <% @array =[1,2,3,4,5,6,7,8,9,10,11,12] %>
+      <% @contador=1 %>
+        <div class="row">
+          <div class="col-sm-12">
+        <% @publications.each do |publication|
+          if publication.important == true %>
+            <div class="col-sm-6">
+              <div class="space even-content text-center">
+                <div class="row"><h4><%=publication.title %>.</h4></div>
+                <p><%= publication.description %></p>
+                <div>
+                    <%= image_tag("music.png", :alt => "rss feed", :height =>80, :width => 150, :class =>"") %>
+                </div>
+                  <%= link_to 'Comprar',
+                  controller: "services",
+                  action: "detalle",
+                  id: publication.id %>
+              </div>
+            </div>
+        <% @contador=@contador +1 %>
+      <% end end %>
+        </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="col-sm-12">
+          <div class="col-sm-12 publicidad">
+          <% @array = [1,2,3,4,5,6,7,8,9]%>
+          <% for item in @array %>
+            <div class="row-public">
+                <h6>American Sniper´ rompe récord de taquilla</h6>
+                <div>La película sobre el francotirador Chris Kyle "American Sniper" dominó la taquilla de EE.UU. por tercer fin de semana consecutivo</div>
+            </div>
+          <% end %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $("#porNombre").hide();
+    $("#porMusica").hide();
+
+    $("#btn_porZona").on('click',function(){
+      $("#porZona").show();
+      $("#porNombre").hide();
+      $("#porMusica").hide();
+    });
+
+    $("#btn_porNombre").on('click',function(){
+      $("#porNombre").show();
+      $("#porZona").hide();
+      $("#porMusica").hide();
+    });
+
+    $("#btn_porMusica").on('click',function(){
+      $("#porMusica").show();
+      $("#porNombre").hide();
+      $("#porZona").hide();
+
+    });
+
+
+});
+
+</script>
+  });
+</script>
+
+

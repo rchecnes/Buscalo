@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="assets/ico/favicon.png">
+  <!--new config-->
+  <!-- Bootstrap core CSS -->
+  <link href="/assets/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/font-awesome.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="/assets/main.css" rel="stylesheet">
+  <link href="/assets/style_proyect.css" rel="stylesheet">
+  <!--<script src="assets/jquery.min.js"></script>-->
+  <script src="/assets/jquery-1.11.2.min.js"></script>
+  <script src="/assets/bootstrap.min.js"></script>
+
+</head>
+<body>
+  <header>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">FunNight</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/services">HOME</a></li>
+            <li class="">&nbsp;</li>
+            <li class="">&nbsp;</li>
+            <li><a href="/users/login" class="btn btn-sm btn-default" role="button">
+               <strong>Iniciar Sesión</strong>
+             </a>
+           </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+ <section id="contenido">
+    <%= yield %>
+</section>
+<!--FOOTER -->
+<footer>
+  <div id="footer">
+    <div class="container">
+      <div class="row centered">
+        <ul class="">
+          <li class="list">Teléfono celular: 985469859</li>
+          <li class="list">Teléfono fijo: 5632123</li>
+          <li class="list">RPC: 98545655</li>
+        </ul>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-dribbble"></i></a>
+
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Footer -->
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#tipo_busqueda").on("click",function(){
+    if($(this).is(":checked") == true){
+      //alert("llega arriba");
+      window.location.href = "articles/showUbication";
+
+    }else{
+      //alert("llega abajo");
+      window.location.href = "articles/index";
+
+    }
+  });
+
+});
+</script>
+</body>
+</html>

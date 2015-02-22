@@ -1,0 +1,166 @@
+body{
+ /*background-color: #e6e6e6;*/
+
+}
+
+#header{
+ height: 100px;
+ /*background-color:#333333;*/
+  color:#fff;
+
+}
+
+.content_filtro{
+  background-image: url("/assets/fondo_filtro1.jpg");
+  min-height: 250px;
+  margin-right: 0px;
+  margin-left: 0px;
+  /*border-bottom: 1px solid #A6C516;*/
+}
+
+.group-content{
+  max-width:900px;
+  margin-left:auto;
+  margin-right:auto;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.cuadro-filtro{
+  background-color: #FFF;
+  margin-top: 20px;
+}
+
+.content-tab{
+  /*padding: 5px;*/
+  /*margin-top: 40px;*/
+  margin-top: 10px;
+  background-color: #fff;
+}
+
+#contenido{
+  /*margin-top: 10px;
+  max-width:1000px;
+  margin-left:auto;
+  margin-right:auto;*/
+  /*background-color: #A3A3A2;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;*/
+}
+
+#footer{
+ height: 100px;
+ background-color:#333333;
+ color:#fff;
+}
+
+.space{
+ margin-top: 8px;
+ margin-bottom: 8px;
+}
+
+.even-content{
+ background-color: #f6f6fa;
+ /*height: 250px;*/
+ border-radius: 3px;
+ border: 1px solid #E2E4E5;
+
+}
+
+.publicidad{
+
+ background-color: #fff;
+ border-radius: 3px;
+ border: 1px solid #DBDDDF;
+ margin-top: 5px;
+}
+
+.row-public{
+ border-top: 1px solid #e6e6e6;
+ text-align: justify;
+ font-size: 13px;
+}
+
+.center-block{
+
+ margin-left: 10px !important;
+ margin-right: 10px !important;
+}
+
+.busqueda{
+  /*background-color: #A39D99;*/
+  padding: 5px;
+  border: 1px solid #C3C6C9;
+  border-radius: 3px;
+}
+
+section {
+  /*padding: 20px*/
+}
+
+/*reducimos paddign para detalle servico y publicidad*/
+#detalle_filtro .group-content> .col-sm-8{
+  /*padding-left: 0px;*/
+}
+
+#footer ul li{
+  list-style-type: none;
+  color: #FF5C33;
+  font-weight: bold;
+}
+
+.ubicacion-actual{
+
+  height: 55px;
+  background-color: #FFAD5C;
+  text-align: center;
+  padding: 16px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+
+.texto-h2{
+  font-size: 18px;
+  font-family: arial;
+}
+
+.content-map{
+  border: 1px solid #DBDDDF;
+
+}
+
+.content-login{
+
+  max-width:650px;
+  margin-left:auto;
+  margin-right:auto;
+  padding: 100px;
+
+}
+
+.borde-login{
+  border: 1px solid #DBDDDF;
+  padding: 25px;
+  background-color: #EDEDEB;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+
+.detalle-content{
+  max-width:650px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.mapa_fun_nigth{
+  width: 102%;
+  height: 300px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-right: 0px;
+  margin-left: -9px;
+}

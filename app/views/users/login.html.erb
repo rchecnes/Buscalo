@@ -1,0 +1,47 @@
+<div class="content-login">
+ <div class="borde-login">
+   <div class="row">
+     <div class="col-sm-12">
+        <form class="form-horizontal" role="form">
+         <div class="form-group">
+           <label for="ejemplo_email_3" class="col-lg-3 control-label">Email</label>
+           <div class="col-lg-9">
+             <input type="email" class="form-control" id="ejemplo_email_3"
+                    placeholder="Email">
+           </div>
+         </div>
+         <div class="form-group">
+           <label for="ejemplo_password_3" class="col-lg-3 control-label">Contraseña</label>
+           <div class="col-lg-9">
+             <input type="password" class="form-control" id="ejemplo_password_3"
+                    placeholder="Contraseña">
+           </div>
+         </div>
+         <div class="form-group">
+           <div class="col-lg-offset-2 col-lg-9">
+             <!--<button type="submit" class="btn btn-default">Iniciar</button>
+             <button type="submit" class="btn btn-default">Crear</button>-->
+             <a href="/publications" class="btn btn-default" role="button">
+               <strong>Iniciar</strong>
+             </a>
+             <!--<a href="/publications" class="btn btn-default" role="button">
+               <strong>Nuevo usuario</strong>
+             </a>-->
+             <%= image_tag("Facebook.png", :alt => "Ingresar", :height =>35, :width => 70, :class =>"") %>
+           </div>
+         </div>
+
+          <div id="user-widget">
+            <% if current_user %>
+              Welcome <strong><%= current_user.name %></strong>!
+              <%= link_to "Sign out", signout_path, id: "sign_out" %>
+            <% else %>
+            <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+            <% end %>
+          </div>
+
+       </form>
+     </div>
+   </div>
+ </div>
+</div>

@@ -1,0 +1,52 @@
+<!DOCTYPE>
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+</head>
+<body>
+	<div id="mapa_canvas"></div>
+
+	<script type="text/javascript">
+	var lat,lon;
+
+    $(document).on("ready",inicio);
+
+    function inicio(){
+      geolocalizar();
+    }
+
+    function geolocalizar(){
+      navigator.geolocation.getCurrentPosition(mostrar, correEnCirculo);
+    }
+
+    function correEnCirculo(errorsh){
+      alert("Tarde o temprano te encontrarmos!");
+      console.log(errorsh);
+    }
+
+    function mostrar(geo){
+      lat = geo.coords.latitude;
+      lon = geo.coords.longitude;
+
+      $("#mapa_canvas").css("height","300px");
+      $("#mapa_canvas").css("width","400px");
+      //alert(lat);
+      var coordenada = new google.maps.LatLng(lat,lon);
+      var opciones = {
+        zoom: 16,
+        center: coordenada,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var mapa = new google.maps.Map(document.getElementById("mapa_canvas"), opciones);
+      var opcionesChinche = {
+        position: coordenada,
+        map: mapa,
+        title: "Te encontarmos"
+      }
+      var chincheta = new google.maps.Marker(opcionesChinche);
+
+    }
+</script>
+</body>
+</html>

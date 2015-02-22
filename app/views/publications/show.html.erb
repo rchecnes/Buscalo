@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @publication.title %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @publication.direction %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @publication.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag(@publication.image_url, :width => 170, :height => 190) if @publication.image.present? %>
+
+
+</p>
+
+<p>
+  <strong>Qt entrance:</strong>
+  <%= @publication.qt_entrance %>
+</p>
+
+<p>
+  <strong>Price entrance:</strong>
+  <%= @publication.price_entrance %>
+</p>
+
+<p>
+  <strong>Price sales:</strong>
+  <%= @publication.price_sales %>
+</p>
+
+<p>
+  <strong>Important:</strong>
+  <%= @publication.important %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @publication.status %>
+</p>
+
+<%= link_to 'Edit', edit_publication_path(@publication) %> |
+<%= link_to 'Back', publications_path %>

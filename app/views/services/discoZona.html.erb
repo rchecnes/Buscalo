@@ -1,0 +1,224 @@
+
+<div class="row content_filtro">
+  <!--inicio tabs-->
+  <div class="group-content">
+    <div class="row cuadro-filtro">
+      <div class="col-sm-12">
+        <div class="content-tab">
+          <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+            <li class="active"><a href="#discoteca" data-toggle="tab">Discotecas</a></li>
+            <li><a href="#bar" data-toggle="tab">Bares</a></li>
+            <li><a href="#pena" data-toggle="tab">Peñas</a></li>
+            <li><a href="#karaoke" data-toggle="tab">Karaoke</a></li>
+          </ul>
+          <div id="my-tab-content" class="tab-content">
+            <div class="tab-pane active" id="discoteca">
+                <form>
+                  <div class="form-group">
+                    <br>
+                    <div class="row">
+                      <div class="col-sm-6"></div>
+                      <div class="col-sm-6 text-right">
+                        <div class="btn-group" role="group" aria-label="...">
+                          <button type="button" class="btn btn-default">Por Zona</button>
+                          <button type="button" class="btn btn-default">Por Nombre</button>
+                          <button type="button" class="btn btn-default">Por Música</button>
+                        </div>
+                      </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-sm-4">
+                          <select class="form-control">
+                            <option>Elije tu distrito</option>
+                            <option>Chorrillos</option>
+                            <option>Breña</option>
+                            <option>San Isidro</option>
+                            <option>Lince</option>
+                          </select>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="radio">
+                            <label>
+                              <input type="checkbox" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                              Ubicación actual
+                            </label>
+                          </div>
+                        </div>
+                        <div class='col-sm-3'>
+                          <div class="form-group">
+                              <div class='input-group date' id='datetimepicker1'>
+                                  <input type='text' class="form-control" />
+                                  <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                                  </span>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-2">
+                          <button type="button" class="btn btn-primary">Buscar</button>
+                        </div>
+                      </div>
+                  </div>
+                </form>
+            </div>
+            <div class="tab-pane" id="bar">vdvdv</div>
+            <div class="tab-pane" id="pena">vdvdv</div>
+            <div class="tab-pane" id="karaoke">vdvdv</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!--fin tabs-->
+<div class="group-content">
+  <div class="row"><div class="col-sm-12">
+    <div class="col-sm-12"><h1>Las más destacadas</h1>
+  </div></div></div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="col-sm-8">
+      <% @array =[1,2,3,4,5,6,7,8,9,10,11,12] %>
+      <% @contador=1 %>
+      <% for @item in @array; %>
+        <% if @contador == 1 %>
+          <div class="row">
+          <div class="col-sm-12">
+        <% end %>
+
+          <div class="col-sm-4">
+            <div class="space even-content text-center">
+              <div class="row"><h4>Discoteca Centrica</h4></div>
+              <p>
+                Jueves 19 de marzo 2015 (10:00 p.m.)
+              </p>
+              <div>
+                  <%= image_tag("music.png", :alt => "rss feed", :height =>80, :width => 150, :class =>"") %>
+              </div>
+              <button type="submit" class="btn btn-danger text-center">Detalle</button>
+            </div>
+          </div>
+        <% if @contador == 3 %>
+          </div>
+          </div>
+          <% @contador = 0 %>
+        <% end %>
+
+        <% @contador=@contador +1 %>
+      <% end %>
+      </div>
+      <div class="col-sm-4">
+        <div class="col-sm-12">
+          <div class="col-sm-12 publicidad">
+          <% @array = [1,2,3,4,5,6,7,8,9]%>
+          <% for item in @array %>
+            <div class="row-public">
+                <h6>American Sniper´ rompe récord de taquilla</h6>
+                <div>La película sobre el francotirador Chris Kyle "American Sniper" dominó la taquilla de EE.UU. por tercer fin de semana consecutivo</div>
+            </div>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<div class="group-content">
+  <div class="col-sm-8">
+      <div class="row">
+        <div class="col-sm-9">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="col-sm-4">
+                <div class="space even-content text-center">
+                  <div><h4>Titulo 1</h4></div>
+                  <div>
+                      <%= image_tag("disco.jpg", :alt => "rss feed", :height =>100, :width => 150, :class =>"") %>
+                  </div><br>
+                  <button type="submit" class="btn btn-default text-center">Ver</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+  <div class="row row-centered ">
+
+    <div class="col-sm-4 col-centered">
+      <div class="publicidad">
+        <h4>Publicidad</h4>
+        <div class="row space">
+          <div class="col-sm-12">
+            <div class="col-sm-12 content-publicidad">
+                <h6>American Sniper´ rompe récord de taquilla</h6>
+                <div>La película sobre el francotirador Chris Kyle "American Sniper" dominó la taquilla de EE.UU. por tercer fin de semana consecutivo</div>
+            </div>
+          </div>
+        </div>
+        <div class="row space">
+          <div class="col-sm-12">
+            <div class="col-sm-12 content-publicidad">
+                <h6>American Sniper´ rompe récord de taquilla</h6>
+                <div>La película sobre el francotirador Chris Kyle "American Sniper" dominó la taquilla de EE.UU. por tercer fin de semana consecutivo</div>
+            </div>
+          </div>
+        </div>
+        <div class="row space">
+          <div class="col-sm-12">
+            <div class="col-sm-12 content-publicidad">
+               <h6>American Sniper´ rompe récord de taquilla</h6>
+               <div>La película sobre el francotirador Chris Kyle "American Sniper" dominó la taquilla de EE.UU. por tercer fin de semana consecutivo</div>
+            </div>
+          </div>
+        </div>
+        <div class="row space">
+          <div class="col-sm-12 content-publicidad">
+            <div class="col-sm-12">
+               <h6>American Sniper´ rompe récord de taquilla</h6>
+               <div>La película sobre el francotirador Chris Kyle "American Sniper" dominó la taquilla de EE.UU. por tercer fin de semana consecutivo</div>
+            </div>
+          </div>
+        </div>
+        <div class="row space">
+          <div class="col-sm-12">
+            <div class="col-sm-12 content-publicidad">
+                <h6>American Sniper´ rompe récord de taquilla</h6>
+                <div>La película sobre el francotirador Chris Kyle "American Sniper" dominó la taquilla de EE.UU. por tercer fin de semana consecutivo</div>
+            </div>
+          </div>
+        </div>
+        <div class="row space">
+          <div class="col-sm-12">
+            <div class="col-sm-12 content-publicidad">
+                <h6>American Sniper´ rompe récord de taquilla</h6>
+                <div>La película sobre el francotirador Chris Kyle "American Sniper" dominó la taquilla de EE.UU. por tercer fin de semana consecutivo</div>
+            </div>
+          </div>
+        </div>
+        <div class="row space">
+          <div class="col-sm-12">
+            <div class="col-sm-12 content-publicidad">
+                <h6>American Sniper´ rompe récord de taquilla</h6>
+                <div>La película sobre el francotirador Chris Kyle "American Sniper" dominó la taquilla de EE.UU. por tercer fin de semana consecutivo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+
+
+
+
+
+
+<script type="text/javascript">
+  /*$(function () {
+    $('#datetimepicker1').datetimepicker();
+  });*/
+</script>
+
+
