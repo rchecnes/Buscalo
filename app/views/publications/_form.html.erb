@@ -22,6 +22,32 @@
           Dirección<br>
         <%= f.text_field :direction, :class=>"form-control" %>
         </div>
+        <div class="col-lg-4">
+          Pais<br>
+        <!--<%= f.text_field :country, :class=>"form-control" %>-->
+        <%= select_tag "cbo_pais", options_from_collection_for_select(Country.all, :id,     :name),:id => 'cbo_pais', :class=>"form-control" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group">
+      <div class="col-lg-12">
+        <div class="col-lg-4">
+          Departamento<br>
+        <!--<%= f.text_field :department, :class=>"form-control" %>-->
+        <%= select_tag "cbo_departamento", options_from_collection_for_select(Department.all, :id,     :name),:id => 'cbo_departamento', :class=>"form-control" %>
+        </div>
+        <div class="col-lg-4">
+          Provincia<br>
+        <!--<%= f.text_field :province, :class=>"form-control" %>-->
+        <%= select_tag "cbo_provincia", options_from_collection_for_select(Province.all, :id,     :name),:id => 'cbo_provincia', :class=>"form-control" %>
+        </div>
+        <div class="col-lg-4">
+          Distrito<br>
+        <!--<%= f.text_field :district, :class=>"form-control" %>-->
+        <%= select_tag "cbo_distrito", options_from_collection_for_select(District.all, :id,     :name),:id => 'cbo_distrito', :class=>"form-control" %>
+        </div>
       </div>
     </div>
   </div>
@@ -36,26 +62,20 @@
           Foto<br>
           <%= f.file_field :image%>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="form-group">
-      <div class="col-lg-12">
         <div class="col-lg-4">
          Cantidad a vender<br>
           <%= f.number_field :qt_entrance,:class=>"form-control"  %>
         </div>
-        <div class="col-lg-4">
-          Precio base<br>
-          <%= f.text_field :price_entrance,:class=>"form-control" %>
-        </div>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="form-group">
       <div class="col-lg-12">
+        <div class="col-lg-4">
+          Precio base<br>
+          <%= f.text_field :price_entrance,:class=>"form-control" %>
+        </div>
         <div class="col-lg-4" style="display:none">
           Precio venta<br>
           <%= f.text_field :price_sales,:class=>"form-control" %>
@@ -71,9 +91,16 @@
       </div>
     </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="col-lg-12">
+        <div class="actions">
+          <%= f.submit :class=>"btn btn-success btn-sm" %>
+        </div>
+      </div>
+    </div>
   </div>
+
 <% end %>
 <script type="text/javascript">
   $(document).ready(function(){
@@ -81,7 +108,7 @@
     var venta_porcentaje = 0.20;
 
     $("#publication_price_entrance").on("keyup",function(){
-      
+
       var precio_final = parseFloat($(this).val()) + (parseFloat($(this).val()) * venta_porcentaje);
 
       $("#publication_price_sales").val(precio_final);
