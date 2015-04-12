@@ -1,13 +1,18 @@
 body{
  /*background-color: #e6e6e6;*/
-
+ margin-top: 100px;
 }
 
 #header{
- height: 100px;
- /*background-color:#333333;*/
+ /*height: 200px;
+ background-color:#333333;
   color:#fff;
+*/
+}
 
+.navbar-inverse,navbar-fixed-top{
+  height: 100px;
+  background-color: #ff7878;
 }
 
 .content_filtro{
