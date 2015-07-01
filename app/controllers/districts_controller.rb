@@ -1,4 +1,5 @@
 class DistrictsController < ApplicationController
+  layout "administration"
   before_action :set_district, only: [:show, :edit, :update, :destroy]
 
   # GET /districts

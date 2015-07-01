@@ -1,12 +1,23 @@
 <%= simple_form_for(@department) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
+  <div class="row">
+    <div class="form-group">
+      <div class="col-lg-12">
+        <div class="col-lg-4">
+          Título<br>
+          <%= f.input :name, :class=>"form-control"%>
+        </div>
+        <div class="col-lg-4">
+          Dirección<br>
+        <%= f.input :description, :class=>"form-control" %>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+

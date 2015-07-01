@@ -1,4 +1,5 @@
 class ProvincesController < ApplicationController
+  layout "administration"
   before_action :set_province, only: [:show, :edit, :update, :destroy]
 
   # GET /provinces
